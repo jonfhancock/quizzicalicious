@@ -1,0 +1,82 @@
+<mockup version="1.0" skin="sketch" measuredW="962" measuredH="624" mockupW="795" mockupH="610">
+  <controls>
+    <control controlID="171" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="167" y="14" w="795" h="610" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%20</text>
+        <verticalScrollbar>true</verticalScrollbar>
+      </controlProperties>
+    </control>
+    <control controlID="172" controlTypeID="com.balsamiq.mockups::Canvas" x="286" y="107" w="556" h="493" measuredW="100" measuredH="70" zOrder="1" locked="false" isInGroup="-1"/>
+    <control controlID="173" controlTypeID="com.balsamiq.mockups::SubTitle" x="301" y="122" w="-1" h="-1" measuredW="252" measuredH="40" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Ancient%20History%20Quiz</text>
+      </controlProperties>
+    </control>
+    <control controlID="174" controlTypeID="com.balsamiq.mockups::Label" x="301" y="162" w="-1" h="-1" measuredW="51" measuredH="25" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Level%201</text>
+      </controlProperties>
+    </control>
+    <control controlID="175" controlTypeID="com.balsamiq.mockups::FieldSet" x="302" y="194" w="526" h="161" measuredW="200" measuredH="170" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>1%29%20Where%20are%20Homer%27s%20%22Pillars%20of%20Herakles%3F%22</text>
+      </controlProperties>
+    </control>
+    <control controlID="176" controlTypeID="com.balsamiq.mockups::FieldSet" x="302" y="366" w="526" h="161" measuredW="200" measuredH="170" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>2%29%20Where%20was%20King%20Minos%27%20palace%3F</text>
+      </controlProperties>
+    </control>
+    <control controlID="177" controlTypeID="com.balsamiq.mockups::Label" x="588" y="161" w="-1" h="-1" measuredW="240" measuredH="25" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Score%3A%207/10%20in%205%20minutes%2032%20seconds</text>
+      </controlProperties>
+    </control>
+    <control controlID="178" controlTypeID="com.balsamiq.mockups::Icon" x="322" y="262" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>CheckMarkIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="179" controlTypeID="com.balsamiq.mockups::Label" x="352" y="296" w="454" h="45" measuredW="589" measuredH="25" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>According%20to%20Homer%2C%20the%20lost%20city%20of%20Atlantis%20is%20supposedly%20%22beyond%20the%20Pillars%20of%20Hercules.%22</text>
+      </controlProperties>
+    </control>
+    <control controlID="180" controlTypeID="com.balsamiq.mockups::Label" x="352" y="261" w="-1" h="-1" measuredW="180" measuredH="25" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Between%20Spain%20and%20Morocco</text>
+      </controlProperties>
+    </control>
+    <control controlID="181" controlTypeID="com.balsamiq.mockups::Icon" x="322" y="223" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>XIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="182" controlTypeID="com.balsamiq.mockups::Label" x="352" y="222" w="-1" h="-1" measuredW="199" measuredH="25" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>On%20the%20eastern%20coast%20of%20Crete</text>
+      </controlProperties>
+    </control>
+    <control controlID="183" controlTypeID="com.balsamiq.mockups::Icon" x="322" y="392" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>CheckMarkIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="184" controlTypeID="com.balsamiq.mockups::Label" x="352" y="391" w="98" h="25" measuredW="98" measuredH="25" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Knossos%2C%20Crete</text>
+      </controlProperties>
+    </control>
+    <control controlID="185" controlTypeID="com.balsamiq.mockups::Label" x="352" y="444" w="454" h="68" measuredW="909" measuredH="25" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>According%20to%20Homer%2C%20King%20Minos%20was%20the%20son%20of%20Zeus%20and%20Europa.%20He%20is%20also%20credited%20with%20building%20the%20first%20great%20navy%20of%20the%20Mediterranean.</text>
+      </controlProperties>
+    </control>
+    <control controlID="186" controlTypeID="com.balsamiq.mockups::ButtonBar" x="398" y="554" w="-1" h="-1" measuredW="333" measuredH="31" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <selectedIndex>2</selectedIndex>
+        <text>Restart%20Level%201%2CMain%20Menu%2CNext%20Level</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
