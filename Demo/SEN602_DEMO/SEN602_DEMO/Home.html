@@ -1,0 +1,102 @@
+<html>
+	<head>
+		<title>Quiz Machine</title>
+		<link rel="stylesheet" type="text/css" href="/Styles/home.css"></link>
+		<link rel="stylesheet" type="text/css" href="/Styles/jquery-ui.css"></link>
+		
+		<script  type="text/javascript" src="/Scripts/jquery-1.5.2.min.js"></script>
+		<script  type="text/javascript" src="/Scripts/jquery-ui-1.8.12.custom.min.js" ></script>
+		<script  type="text/javascript" src="/Scripts/jquery.tmpl.min.js"></script>
+		<script  type="text/javascript" src="/Scripts/data.js"></script>
+		<script  type="text/javascript" src="/Scripts/quiz_machine.js"></script>
+
+<script id="questionTemplate" type="text/x-jquery-tmpl"> 
+<dl>
+<dt><b>${index})</b> ${question}</dt>
+{{each(i,answer) answers}}
+	<dd>
+		<input type="radio" id="answer${answer.id}" name="answer" is_correct="${answer.isCorrectAnswer}" onchange="ScoreQuestion(${index-1},${answer.id-1});" />
+		<label for="answer${answer.id}" class="answerLabel">${answer.text}</label>
+	</dd>
+{{/each}}
+</dl>
+</script>
+
+<script id="questionNavigationTemplate" type="text/x-jquery-tmpl"> 
+{{if next > 0}}
+	{{if next == 11}}
+		<a href="javascript:move(${next});">Finish</a>
+	{{else}}
+		<a href="javascript:move(${next});">Next</a>
+	{{/if}}
+{{/if}}
+</script>
+
+<script id="questionTemplateComplete" type="text/x-jquery-tmpl"> 
+<dl>
+<dt><b>${index})</b> ${question}</dt>
+{{each(i,answer) answers}}
+	<dd>
+		<input type="radio" id="answer${answer.id}" name="question_${index}_answers" is_correct="${answer.isCorrectAnswer}" {{html $item.getChecked(index-1,i)}}/>
+		<label for="answer${answer.id}" class="answerLabel">${answer.text}</label>
+	</dd>
+{{/each}}
+</dl>
+</script>
+
+</head>
+<body>
+<div id="actions" style="float:right"></div>
+<div style="clear:both"></div>
+<div class="container" id="pageStart">
+    <h1>Ancient History Quiz</h1>
+
+    <h3>Choose a level to get started</h3>
+    <input type="checkbox" id="ckSuddenDeath" name="ckSuddenDeath" /> 
+    <label for="ckSuddenDeath">Sudden Death Mode</label>
+
+    <div class="selectionContainer" style="margin-top:10px;">
+      <a href="javascript:startLevelOne();" class="levelButton shadow">Level 1</a>
+      <span class="label scoreLabel">Previous Score:</span> <a href="#" id="lvl1Score"
+      class="previousScore" name="lvl1Score">No Score</a>
+    </div>
+
+    <div class="selectionContainer">
+      <a href="#" class="levelButton shadow">Level 2</a> <span class=
+      "label scoreLabel">Previous Score:</span> <a href="#" id="lvl2Score" class=
+      "previousScore" name="lvl2Score">No Score</a>
+    </div>
+
+    <div class="selectionContainer">
+      <a href="#" class="levelButton shadow">Level 3</a> <span class=
+      "label scoreLabel">Previous Score:</span> <a href="#" id="lvl3Score" class=
+      "previousScore" name="lvl3Score">No Score</a>
+    </div>
+
+    <div class="selectionContainer">
+      <a href="#" class=""></a> <span class="label scoreLabel" style=
+      "margin-left:100px;">Combined Score:</span> <a href="#" id="lvl3Score" class=
+      "previousScore" name="lvl3Score">No Score</a>
+    </div>
+</div>
+
+<div class="container" id="pageQuestions" style="display:none;">
+    <h1>Ancient History Quiz</h1>
+
+    <div id="pageQuestion_lblLabel" class="inline">
+      <h3 style="margin-top:8px;margin-right: 50px;">Level 1</h3>
+    </div>
+
+    <div id="bardivs" class="inline">
+      <div id="progressbar"></div>
+      <div id="progresstext"></div>
+    </div>
+    <br class="clearBoth" />
+    <!-- you may or may not need this -->
+
+    <div class="selectionContainer" id="questionContainer"></div>
+    <div class="selectionContainer" id="questionNavigationContainer"></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="SEN602_DEMO/Scripts/quiz_machine.js">
+    <Files>
+      <File FileName="SEN602_DEMO/Scripts/quiz_machine.js" Line="45" Column="35" />
+      <File FileName="SEN602_DEMO/Home.html" Line="85" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
