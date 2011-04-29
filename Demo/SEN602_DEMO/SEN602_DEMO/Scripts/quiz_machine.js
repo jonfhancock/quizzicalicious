@@ -65,6 +65,8 @@ var QuizMachine = (function($){
 			$( "#questionNavigationContainer" ).html('');
 			$( "#questionTemplate" ).tmpl(question).appendTo( "#questionContainer" );
 			$( "#questionNavigationTemplate" ).tmpl(question).appendTo( "#questionNavigationContainer" );
+			$( "#questionContainer" ).hide().show('fade','fast');
+			$( "#questionNavigationContainer" ).hide().show('fade','fast');
 			$("#progressbar").progressbar({value: (instance.nextQuestionIndex) * 10});	
 			$("#progresstext").html("<p class='ScoreLabel'>Score:  "+ getCorrectAnswerCount() +"/10<p>");
 			
