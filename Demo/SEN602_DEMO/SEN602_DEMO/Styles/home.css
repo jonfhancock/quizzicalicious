@@ -22,10 +22,15 @@ background-image: -moz-linear-gradient(
 //	padding: 20px 40px 20px 20px;
 //	background:#FFF;
 }
-h1
+.header
 {
 margin:0px;
 padding:10px;
+padding-left:15px;
+}
+h1, h2{
+margin:0px;
+padding:0px;
 }
 .content
 {
@@ -37,7 +42,7 @@ padding:10px;
 #pageQuestions
 {
 	position:absolute;
-	top:72px;
+	top:103px;
 	left:8px;
 }
 .selectionContainer
