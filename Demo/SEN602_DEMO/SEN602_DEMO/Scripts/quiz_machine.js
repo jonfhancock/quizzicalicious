@@ -1,92 +1,124 @@
-var currentQuizState = [];
-function findCorrectAnswerIndex(question)
-{
-	var result = 0;
-	$.each(question.answers, function(index, value) { 
-  		if(value.isCorrectAnswer === "true")
-  		{
-  			result = index;
-  			return false;
-  		}
-	});
-	return result;
+function Answer(answer, isCorrect, index) {
+    this.id = index;
+    this.text = answer;
+    this.isCorrectAnswer = isCorrect;
 }
 
-function startLevelOne()
-{
-	$.each(QuestionPoolLevelOne, function(index, value) { 
-  		currentQuizState[currentQuizState.length] = {CorrectAnswerIndex:findCorrectAnswerIndex(value),ChosenAnswerIndex:""};
-	});
-	$('#pageStart').hide('fade');
-	move(0);
-	$('#pageQuestions').show('slide');
+function Question(question, index) {
+    this.question = question;
+    this.index = index;
+    this.correctAnswer = -1;
+    this.chosenAnswer = -1;
+    this.answers = [];
 }
 
-function getCorrectAnswerCount()
-{
-	var result = 0;
-	$.each(currentQuizState, function(index, value) { 
+
+Question.prototype.addAnswer = function (answer, isCorrect) {
+    this.answers[this.answers.length] = new Answer(answer, isCorrect, this.answers.length);
+    //Set the correct answer for the is question to save having to search for it later
+    if(isCorrect === "true"){
+    	this.correctAnswer = this.answers.length -1;
+    }
+}
+
+
+
+var QuizMachine = (function($){
+
+	var instance = {}
 	
-		if(value.ChosenAnswerIndex === value.CorrectAnswerIndex)
-		{
-			result += 1;
-		}
-	});
-	return result;
-}
-
-function move(index)
-{
-	if(index < 11)
+	instance.currentQuiz = [];
+	instance.currentQuestionIndex = -1;
+	instance.nextQuestionIndex = 0;
+	
+	function getCorrectAnswerCount()
 	{
-		$( "#questionContainer" ).html('');
-		$( "#questionNavigationContainer" ).html('');
-		$( "#questionTemplate" ).tmpl( QuestionPoolLevelOne[index] ).appendTo( "#questionContainer" );
-		$( "#questionNavigationTemplate" ).tmpl( QuestionPoolLevelOne[index] ).appendTo( "#questionNavigationContainer" );
-		$("#progressbar").progressbar({
-				value: (index+1) * 10
-			});	
-		$("#progresstext").html("<p class='ScoreLabel'>Score:  "+ getCorrectAnswerCount() +"/10<p>");
+		var count = 0;
+		$.each(instance.currentQuiz, function(index, value) { 
+		
+			if(value.correctAnswer == value.chosenAnswer){
+			count += 1;
+			}
+		});
+		return count;
 	}
-	else
+	
+	instance.setSelectedAnswer = function(questionIndex,answerIndex)
 	{
-		$( "#questionContainer" ).html('');
-		$( "#questionNavigationContainer" ).html('');
-		$( "#questionTemplateComplete" ).tmpl( QuestionPoolLevelOne,
+		if(questionIndex > -1 && answerIndex > -1)
 		{
+			var question = instance.currentQuiz[questionIndex];
+			question.chosenAnswer = answerIndex;
+		}
+	};
+	
+	
+	
+	instance.moveNext = function()
+	{
+		if(instance.currentQuestionIndex < 9)
+		{			
+			var question = instance.currentQuiz[instance.nextQuestionIndex];
+			instance.currentQuestionIndex = instance.nextQuestionIndex;
+			instance.nextQuestionIndex = instance.nextQuestionIndex + 1;
+			$( "#questionContainer" ).html('');
+			$( "#questionNavigationContainer" ).html('');
+			$( "#questionTemplate" ).tmpl(question).appendTo( "#questionContainer" );
+			$( "#questionNavigationTemplate" ).tmpl(question).appendTo( "#questionNavigationContainer" );
+			$("#progressbar").progressbar({value: (instance.nextQuestionIndex) * 10});	
+			$("#progresstext").html("<p class='ScoreLabel'>Score:  "+ getCorrectAnswerCount() +"/10<p>");
 			
-			getChecked : function(questionIndex,answerIndex)
-			{
-				var result = '';
-				if(currentQuizState[questionIndex].ChosenAnswerIndex === answerIndex)
-				{
-					result = "checked='checked'";
-				}
-				return  result;
-			}
-		}).appendTo( "#questionContainer" );
-	}
-}
-
-function ScoreQuestion(questionIndex,chosenAnswerIndex)
-{
-	var result = false;
-	currentQuizState[questionIndex].ChosenAnswerIndex = chosenAnswerIndex;
-	if(QuestionPoolLevelOne !== null)
-	{
-		if(QuestionPoolLevelOne[questionIndex] !== null && QuestionPoolLevelOne[questionIndex].answers !== null)
-		{
-			if(QuestionPoolLevelOne[questionIndex].answers[chosenAnswerIndex] !== null)
-			{
-				var answer = QuestionPoolLevelOne[questionIndex].answers[chosenAnswerIndex];
-				
-				if(answer.isCorrectAnswer === "true")
-				{
-					result = (currentQuizState[questionIndex].ChosenAnswerIndex == currentQuizState[questionIndex].CorrectAnswerIndex);
-					
-				}
-			}
 		}
-	}
-	return result;
-}
+		else if(instance.currentQuestionIndex == 9)
+		{
+			$( "#questionContainer" ).html('');
+			$( "#questionNavigationContainer" ).html('');
+			$( "#questionTemplateComplete" ).tmpl(instance.currentQuiz,
+			{				
+				getChecked : function(questionIndex,answerIndex)
+				{
+					var result = '';
+					if(instance.currentQuiz[questionIndex].chosenAnswer === answerIndex)
+					{
+						result = "checked='checked'";
+					}
+					return  result;
+				}
+			}).appendTo( "#questionContainer" );
+		}
+	
+	};
+	
+	instance.startQuiz = function(level){
+		instance.currentQuiz  = QuizLevelDataAccess.getLevelOneQuestions();
+		$('#pageStart').hide('fade');
+		$('#pageQuestions').show('slide');
+		this.moveNext();
+		
+	};
+	
+	return instance;
+
+
+}(jQuery));
+
+
+var QuizLevelDataAccess = (function($){
+	var instance = {}
+	
+	instance.getLevelOneQuestions = function()
+	{
+		var questionPool = [];
+		var question = {};
+		$.each(QuestionPoolLevelOne, function(index, value) { 
+			question = new Question(value.question,questionPool.length);	
+			question.addAnswer(value.answers[0].text,value.answers[0].isCorrectAnswer);
+			question.addAnswer(value.answers[1].text,value.answers[1].isCorrectAnswer);
+			question.addAnswer(value.answers[2].text,value.answers[2].isCorrectAnswer);
+			question.addAnswer(value.answers[3].text,value.answers[3].isCorrectAnswer);
+			questionPool[questionPool.length] = question;
+		});
+		return questionPool;	
+	}	
+	return instance;
+}(jQuery));
