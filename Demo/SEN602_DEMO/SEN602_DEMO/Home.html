@@ -42,9 +42,9 @@
 <body>
 <div id="actions" style="float:right"></div>
 <div style="clear:both"></div>
-<div class="container  ui-widget" id="pageStart">
+<div class="container  ui-widget" >
     <h1 class="ui-widget-header ui-corner-top">Ancient History Quiz</h1>
-	<div class="ui-widget-content content">
+	<div class="ui-widget-content content"  id="pageStart">
 	    <h3>Choose a level to get started</h3>
 	    <input type="checkbox" id="ckSuddenDeath" name="ckSuddenDeath" /> 
 	    <label for="ckSuddenDeath">Sudden Death Mode</label>
@@ -69,15 +69,11 @@
 	
 	    <div class="selectionContainer">
 	      <a href="#" class=""></a> <span class="label scoreLabel" style=
-	      "margin-left:69px;">Combined Score:</span> <a href="#" id="lvl3Score" class=
+	      "margin-left:89px;">Combined Score:</span> <a href="#" id="lvl3Score" class=
 	      "previousScore" name="lvl3Score">No Score</a>
 	    </div>
     </div>
-</div>
-
-<div class="container ui-widget " id="pageQuestions" style="display:none;">
-    <h1 class="ui-widget-header ui-corner-top">Ancient History Quiz</h1>
-	<div class="ui-widget-content content">
+    <div class="ui-widget-content content" id="pageQuestions" style="display:none;">
 	    <div id="pageQuestion_lblLabel" class="inline">
 	      <h3 style="margin-top:8px;margin-right: 50px;">Level 1</h3>
 	    </div>
@@ -93,6 +89,11 @@
 	    <div class="selectionContainer" id="questionNavigationContainer"></div>
     </div>
 </div>
+
+<!--<div class="container ui-widget "  >
+    <h1 class="ui-widget-header ui-corner-top">Ancient History Quiz</h1>
+	
+</div> -->
 
 </body>
 </html>

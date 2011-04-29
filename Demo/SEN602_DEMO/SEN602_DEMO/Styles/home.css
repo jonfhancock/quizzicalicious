@@ -30,13 +30,14 @@ padding:10px;
 .content
 {
 	min-height: 450px;
+	width:538px;
 	padding:20px 40px 20px 20px;
 	background: #FFF;
 }
 #pageQuestions
 {
 	position:absolute;
-	top:8px;
+	top:72px;
 	left:8px;
 }
 .selectionContainer

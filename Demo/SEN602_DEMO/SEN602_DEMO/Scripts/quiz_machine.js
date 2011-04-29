@@ -93,7 +93,7 @@ var QuizMachine = (function($){
 	
 	instance.startQuiz = function(level){
 		instance.currentQuiz  = QuizLevelDataAccess.getLevelOneQuestions();
-		$('#pageStart').hide('fade');
+		//$('#pageStart').hide('fade');
 		$('#pageQuestions').show('slide');
 		this.moveNext();
 		
