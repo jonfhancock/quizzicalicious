@@ -47,6 +47,16 @@ var QuizMachine = (function($){
 	instance.currentQuestionIndex = -1;
 	instance.nextQuestionIndex = 0;
 	
+	function init()
+	{
+		instance.timeStarted = new Date();
+		instance.timeStopped = new Date();
+		instance.currentQuiz = [];
+		instance.currentQuestionIndex = -1;
+		instance.nextQuestionIndex = 0;
+		$( "#elapsedtext" ).html('');
+	}
+	
 	function getCorrectAnswerCount()
 	{
 		var count = 0;
@@ -113,8 +123,11 @@ var QuizMachine = (function($){
 	};
 	
 	instance.startQuiz = function(level){
+		init();
 		instance.currentQuiz  = QuizLevelDataAccess.getLevelOneQuestions();
-		//$('#pageStart').hide('fade');
+		$( "#questionContainer" ).html('');
+		$( "#questionNavigationContainer" ).html('');
+		$('#pageStart').hide('fade');
 		$('#pageQuestions').show('slide');
 		this.moveNext();
 		instance.timeStarted = new Date();
