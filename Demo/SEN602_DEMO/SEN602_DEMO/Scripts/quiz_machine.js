@@ -43,6 +43,7 @@ var QuizMachine = (function($){
 	
 	instance.timeStarted = new Date();
 	instance.timeStopped = new Date();
+	instance.currentLevel = 0;
 	instance.currentQuiz = [];
 	instance.currentQuestionIndex = -1;
 	instance.nextQuestionIndex = 0;
@@ -51,6 +52,7 @@ var QuizMachine = (function($){
 	{
 		instance.timeStarted = new Date();
 		instance.timeStopped = new Date();
+		instance.currentLevel = 0;
 		instance.currentQuiz = [];
 		instance.currentQuestionIndex = -1;
 		instance.nextQuestionIndex = 0;
@@ -100,9 +102,23 @@ var QuizMachine = (function($){
 		else if(instance.currentQuestionIndex == 9)
 		{
 			instance.timeStopped = new Date();
-			instance.questionLevelOnePerformance = new QuestionLevel(getCorrectAnswerCount(),instance.timeStopped - instance.timeStarted,1);
+			var questionLevel = new QuestionLevel(getCorrectAnswerCount(),instance.timeStopped - instance.timeStarted,instance.currentLevel);
+			switch(instance.currentLevel)
+			{
+				case 1:
+				instance.questionLevelOnePerformance  = questionLevel;
+				break;
+				
+				case 2:
+				instance.questionLevelTwoPerformance  = questionLevel;
+				break;
+				
+				case 3:
+				instance.questionLevelThreePerformance  = questionLevel;
+				break;
+			}
 			$( "#progresstext").html("<p class='ScoreLabel'>Score:  "+ getCorrectAnswerCount()  +"/10 " + "<p>");
-			$( "#elapsedtext" ).html('Taken in ' + getTimestampText(instance.questionLevelOnePerformance.time));
+			$( "#elapsedtext" ).html('Taken in ' + getTimestampText(questionLevel.time));
 			$( "#questionContainer" ).html('');
 			$( "#questionNavigationContainer" ).html('');
 			$( "#questionTemplateComplete" ).tmpl(instance.currentQuiz,
@@ -117,14 +133,30 @@ var QuizMachine = (function($){
 					return  result;
 				}
 			}).appendTo( "#questionContainer" );
-			$( "#menuTemplate" ).tmpl( [{}]).appendTo( "#questionContainer" );
+			$( "#menuTemplate" ).tmpl( [{"canMoveNext" : instance.currentLevel < 3}]).appendTo( "#questionContainer" );
 		}
 	
 	};
 	
 	instance.startQuiz = function(level){
 		init();
-		instance.currentQuiz  = QuizLevelDataAccess.getLevelOneQuestions();
+		instance.currentLevel = level;
+		switch(level)
+		{
+			case 1:
+			instance.currentQuiz  = QuizLevelDataAccess.getLevelOneQuestions();
+			break;
+			
+			case 2:
+			instance.currentQuiz  = QuizLevelDataAccess.getLevelTwoQuestions();
+			break;
+			
+			case 3:
+			instance.currentQuiz  = QuizLevelDataAccess.getLevelThreeQuestions();
+			break;
+		}
+		
+		$('#quizLevel').html(level);
 		$( "#questionContainer" ).html('');
 		$( "#questionNavigationContainer" ).html('');
 		$('#pageStart').hide('fade');
@@ -144,6 +176,17 @@ var QuizMachine = (function($){
 		$( "#summaryTemplate" ).tmpl(instance.questionLevelThreePerformance).appendTo( "#levelContainer" );
 		
 		
+	};
+	
+	instance.startNextLevel = function()
+	{
+		if(instance.currentLevel < 3){
+			instance.startQuiz(instance.currentLevel);
+		}
+		else{
+			instance.prepareSummaryPage();
+		}
+	
 	};
 	return instance;
 
@@ -167,7 +210,37 @@ var QuizLevelDataAccess = (function($){
 			questionPool[questionPool.length] = question;
 		});
 		return questionPool;	
+	}
+	
+	instance.getLevelTwoQuestions = function()
+	{
+		var questionPool = [];
+		var question = {};
+		$.each(QuestionPoolLevelOne, function(index, value) { 
+			question = new Question(value.question,questionPool.length);	
+			question.addAnswer(value.answers[0].text,value.answers[0].isCorrectAnswer);
+			question.addAnswer(value.answers[1].text,value.answers[1].isCorrectAnswer);
+			question.addAnswer(value.answers[2].text,value.answers[2].isCorrectAnswer);
+			question.addAnswer(value.answers[3].text,value.answers[3].isCorrectAnswer);
+			questionPool[questionPool.length] = question;
+		});
+		return questionPool;	
 	}	
+	
+	instance.getLevelThreeQuestions = function()
+	{
+		var questionPool = [];
+		var question = {};
+		$.each(QuestionPoolLevelOne, function(index, value) { 
+			question = new Question(value.question,questionPool.length);	
+			question.addAnswer(value.answers[0].text,value.answers[0].isCorrectAnswer);
+			question.addAnswer(value.answers[1].text,value.answers[1].isCorrectAnswer);
+			question.addAnswer(value.answers[2].text,value.answers[2].isCorrectAnswer);
+			question.addAnswer(value.answers[3].text,value.answers[3].isCorrectAnswer);
+			questionPool[questionPool.length] = question;
+		});
+		return questionPool;	
+	}		
 	return instance;
 }(jQuery));
 
