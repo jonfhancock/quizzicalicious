@@ -4,7 +4,7 @@ function QuestionLevel(score,time,level){
 	this.level = level;
 	this.summary = "Quiz Not Yet Taken"
 	if(time > 0){
-		this.summary = '' + this.score +  '\10 in ' + getTimestampText(this.time);
+		this.summary = '' + this.score +  ' \\ 10 in ' + getTimestampText(this.time);
 	}
 }
 
