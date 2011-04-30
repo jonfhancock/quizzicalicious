@@ -1,3 +1,13 @@
+function QuestionLevel(score,time,level){
+	this.score = score;
+	this.time = time;
+	this.level = level;
+	this.summary = "Quiz Not Yet Taken"
+	if(time > 0){
+		this.summary = '' + this.score +  '\10 in ' + getTimestampText(this.time);
+	}
+}
+
 function Answer(answer, isCorrect, index) {
     this.id = index;
     this.text = answer;
@@ -26,7 +36,13 @@ Question.prototype.addAnswer = function (answer, isCorrect) {
 var QuizMachine = (function($){
 
 	var instance = {}
+	instance.questionLevelOnePerformance = new QuestionLevel(0,0,1);
+	instance.questionLevelTwoPerformance  = new QuestionLevel(0,0,2);
+	instance.questionLevelThreePerformance = new QuestionLevel(0,0,3);
 	
+	
+	instance.timeStarted = new Date();
+	instance.timeStopped = new Date();
 	instance.currentQuiz = [];
 	instance.currentQuestionIndex = -1;
 	instance.nextQuestionIndex = 0;
@@ -71,6 +87,10 @@ var QuizMachine = (function($){
 		}
 		else if(instance.currentQuestionIndex == 9)
 		{
+			instance.timeStopped = new Date();
+			instance.questionLevelOnePerformance = new QuestionLevel(getCorrectAnswerCount(),instance.timeStopped - instance.timeStarted,1);
+			$( "#progresstext").html("<p class='ScoreLabel'>Score:  "+ getCorrectAnswerCount()  +"/10 " + "<p>");
+			$( "#elapsedtext" ).html('Taken in ' + getTimestampText(instance.questionLevelOnePerformance.time));
 			$( "#questionContainer" ).html('');
 			$( "#questionNavigationContainer" ).html('');
 			$( "#questionTemplateComplete" ).tmpl(instance.currentQuiz,
@@ -85,6 +105,7 @@ var QuizMachine = (function($){
 					return  result;
 				}
 			}).appendTo( "#questionContainer" );
+			$( "#menuTemplate" ).tmpl( [{}]).appendTo( "#questionContainer" );
 		}
 	
 	};
@@ -94,9 +115,21 @@ var QuizMachine = (function($){
 		$('#pageStart').hide('fade');
 		$('#pageQuestions').show('slide');
 		this.moveNext();
+		instance.timeStarted = new Date();
 		
 	};
 	
+	
+	instance.prepareSummaryPage = function(){
+		$('#pageStart').show('fade');
+		$('#pageQuestions').hide('slide');
+		$( "#levelContainer" ).html('');
+		$( "#summaryTemplate" ).tmpl(instance.questionLevelOnePerformance).appendTo( "#levelContainer" );
+		$( "#summaryTemplate" ).tmpl(instance.questionLevelTwoPerformance).appendTo( "#levelContainer" );
+		$( "#summaryTemplate" ).tmpl(instance.questionLevelThreePerformance).appendTo( "#levelContainer" );
+		
+		
+	};
 	return instance;
 
 
@@ -122,3 +155,18 @@ var QuizLevelDataAccess = (function($){
 	}	
 	return instance;
 }(jQuery));
+
+function getTimestampText(time){
+	var seconds = (time / 1000);
+	var minutes = ((time / 1000)/60);
+	var text = 'Cannot determined time';
+	if(minutes < 1)
+	{
+		text = Math.floor(seconds) + ' Seconds';
+	}
+	else
+	{
+		text =  Math.floor(minutes) + ' Minutes' + Math.floor(seconds) + ' Seconds';
+	}
+	return text;
+}

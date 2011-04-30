@@ -54,6 +54,29 @@
 </dl>
 </script>
 
+<script id="summaryTemplate" type="text/x-jquery-tmpl"> 
+    <div class="selectionContainer" style="margin-top:10px;">
+      <a href="javascript:QuizMachine.startQuiz(${level});" class="levelButton shadow">Level ${level}</a>
+      <span class="label scoreLabel">Previous Score:</span> 
+      <a href="#" id="lvl${level}Score" class="previousScore" name="lvl1Score">${summary}</a>
+    </div>
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+	QuizMachine.prepareSummaryPage();
+});
+</script>
+<script  id="menuTemplate" type="text/x-jquery-tmpl">
+<center>
+<table>
+<tr>
+<td><a href="javascript:QuizMachine.startQuiz(1)"  class="levelButton shadow">Restart Level</a></td>
+<td><a href="javascript:QuizMachine.prepareSummaryPage();"  class="levelButton shadow">Main Menu</a></td>
+<td><a href="#"  class="levelButton shadow">Next Level</a></td>
+</tr>
+<table>
+</center>
+</script>
 </head>
 <body>
 <div id="actions" style="float:right"></div>
@@ -65,7 +88,8 @@
     <input type="checkbox" id="ckSuddenDeath" name="ckSuddenDeath" /> 
     <label for="ckSuddenDeath">Sudden Death Mode</label>
 
-    <div class="selectionContainer" style="margin-top:10px;">
+	<div id="levelContainer">
+	<div class="selectionContainer" style="margin-top:10px;">
       <a href="javascript:QuizMachine.startQuiz(1);" class="levelButton shadow">Level 1</a>
       <span class="label scoreLabel">Previous Score:</span> <a href="#" id="lvl1Score"
       class="previousScore" name="lvl1Score">No Score</a>
@@ -88,6 +112,8 @@
       "margin-left:100px;">Combined Score:</span> <a href="#" id="lvl3Score" class=
       "previousScore" name="lvl3Score">No Score</a>
     </div>
+	</div>
+    
 </div>
 
 <div class="container" id="pageQuestions" style="display:none;">
@@ -100,6 +126,7 @@
     <div id="bardivs" class="inline">
       <div id="progressbar"></div>
       <div id="progresstext"></div>
+      <div id="elapsedtext"></div>
     </div>
     <br class="clearBoth" />
     <!-- you may or may not need this -->
