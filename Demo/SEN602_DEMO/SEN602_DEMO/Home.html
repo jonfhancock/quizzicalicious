@@ -22,8 +22,9 @@
 </dl>
 </script>
 
-<script id="questionNavigationTemplate" type="text/x-jquery-tmpl"> 
+<script id="questionNavigationTemplate" type="text/x-jquery-tmpl">
 <a href="javascript:QuizMachine.moveNext();" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" id="button-next">Next</a>
+<a href="javascript:QuizMachine.prepareSummaryPage();" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" id="button-next">Quit</a> 
 </script>
 
 <script id="questionTemplateComplete" type="text/x-jquery-tmpl"> 
@@ -73,7 +74,9 @@ $(document).ready(function(){
 <tr>
 <td><a href="javascript:QuizMachine.startQuiz(1)"  class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">Restart Level</a></td>
 <td><a href="javascript:QuizMachine.prepareSummaryPage();"  class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">Main Menu</a></td>
-<td><a href="#"  class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">Next Level</a></td>
+{{if canMoveNext == true}}
+<td><a href="javascript:QuizMachine.startNextLevel();"  class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">Next Level</a></td>
+{{/if}}
 </tr>
 <table>
 </center>
@@ -120,7 +123,7 @@ $(document).ready(function(){
     </div>
     <div class="ui-widget-content content" id="pageQuestions" style="display:none;">
 	    <div id="pageQuestion_lblLabel" class="inline">
-	      <h3 style="margin-top:8px;margin-right: 50px;">Level 1</h3>
+	      <h3 style="margin-top:8px;margin-right: 50px;">Level <span id="quizLevel"></span></h3>
 	    </div>
 	
 	    <div id="bardivs" class="inline">
