@@ -1,13 +1,82 @@
+body{
+background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.26, rgb(92,155,204)),
+    color-stop(0.82, rgb(223,239,252))
+);
+background-image: -moz-linear-gradient(
+    center bottom,
+    rgb(92,155,204) 26%,
+    rgb(223,239,252) 82%
+);
+background-position:fixed;
+
+}
+.bodyextra{
+background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.26, rgb(92,155,204)),
+    color-stop(0.82, rgb(223,239,252))
+);
+background-image: -moz-linear-gradient(
+    center bottom,
+    rgb(92,155,204) 26%,
+    rgb(223,239,252) 82%
+);
+}
 .container
 {
 	min-height: 500px;
-	max-width: 600px;
-	border: solid 3px black;
-	padding: 20px 40px 20px 20px;
+	width: 600px;
+//	border: solid 3px #A6C9E2;
+//	padding: 20px 40px 20px 20px;
+//	background:#FFF;
+}
+.header
+{
+margin:0px;
+padding:10px;
+padding-left:15px;
+}
+h1, h2{
+margin:0px;
+padding:0px;
+}
+.content
+{
+	min-height: 450px;
+	width:538px;
+	padding:20px 40px 20px 20px;
+	background: #FFF;
+}
+#pageQuestions
+{
+	position:absolute;
+	top:103px;
+	left:8px;
 }
 .selectionContainer
 {
 	padding: 15px;
+}
+#questionNavigationContainer
+{
+	position:absolute;
+	bottom:0px;
+	width:500px;
+}
+#button-next
+{
+	float:right;
+	padding: 5px 8px;
+}
+.ui-button
+{
+	padding: 5px 8px;
 }
 .label
 {
@@ -15,7 +84,7 @@
 }
 .scoreLabel
 {
-	margin-left: 40px;
+	margin-left: 15px;
 }
 .previousScore
 {
@@ -23,18 +92,18 @@
 }
 .levelButton
 {
-	padding: 3px;
-	border: solid 2px black;
+	padding: 5px 8px;
+	//border: solid 2px black;
 }
 
 .levelButton:hover
 {
-	border: solid 2px blue;
+	//border: solid 2px blue;
 }
 .shadow {
-	-moz-box-shadow: 3px 3px 4px #000;
-	-webkit-box-shadow: 3px 3px 4px #000;
-	box-shadow: 3px 3px 4px #000;
+	//-moz-box-shadow: 3px 3px 4px #000;
+//	-webkit-box-shadow: 3px 3px 4px #000;
+//	box-shadow: 3px 3px 4px #000;
 }
 .answerLabel
 {
@@ -60,6 +129,11 @@ div.inline { float:left; }
     position:absolute;
     top:0;
     left:100px;
+}
+#progresstext .scoreLabel
+{
+margin-left:0px;
+margin-top:8px;
 }
 .ScoreLabel
 {

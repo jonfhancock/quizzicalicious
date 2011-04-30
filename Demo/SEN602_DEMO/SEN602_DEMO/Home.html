@@ -1,9 +1,9 @@
 <html>
 	<head>
 		<title>Quiz Machine</title>
-		<link rel="stylesheet" type="text/css" href="/Styles/home.css"></link>
-		<link rel="stylesheet" type="text/css" href="/Styles/jquery-ui.css"></link>
 		
+		<link rel="stylesheet" type="text/css" href="/Styles/jquery-ui.css"></link>
+		<link rel="stylesheet" type="text/css" href="/Styles/home.css"></link>
 		<script  type="text/javascript" src="/Scripts/jquery-1.5.2.min.js"></script>
 		<script  type="text/javascript" src="/Scripts/jquery-ui-1.8.12.custom.min.js" ></script>
 		<script  type="text/javascript" src="/Scripts/jquery.tmpl.min.js"></script>
@@ -23,7 +23,7 @@
 </script>
 
 <script id="questionNavigationTemplate" type="text/x-jquery-tmpl"> 
-<a href="javascript:QuizMachine.moveNext();">Next</a>
+<a href="javascript:QuizMachine.moveNext();" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" id="button-next">Next</a>
 </script>
 
 <script id="questionTemplateComplete" type="text/x-jquery-tmpl"> 
@@ -56,7 +56,7 @@
 
 <script id="summaryTemplate" type="text/x-jquery-tmpl"> 
     <div class="selectionContainer" style="margin-top:10px;">
-      <a href="javascript:QuizMachine.startQuiz(${level});" class="levelButton shadow">Level ${level}</a>
+      <a href="javascript:QuizMachine.startQuiz(${level});" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">Level ${level}</a>
       <span class="label scoreLabel">Previous Score:</span> 
       <a href="#" id="lvl${level}Score" class="previousScore" name="lvl1Score">${summary}</a>
     </div>
@@ -70,9 +70,9 @@ $(document).ready(function(){
 <center>
 <table>
 <tr>
-<td><a href="javascript:QuizMachine.startQuiz(1)"  class="levelButton shadow">Restart Level</a></td>
-<td><a href="javascript:QuizMachine.prepareSummaryPage();"  class="levelButton shadow">Main Menu</a></td>
-<td><a href="#"  class="levelButton shadow">Next Level</a></td>
+<td><a href="javascript:QuizMachine.startQuiz(1)"  class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">Restart Level</a></td>
+<td><a href="javascript:QuizMachine.prepareSummaryPage();"  class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">Main Menu</a></td>
+<td><a href="#"  class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">Next Level</a></td>
 </tr>
 <table>
 </center>
@@ -81,59 +81,60 @@ $(document).ready(function(){
 <body>
 <div id="actions" style="float:right"></div>
 <div style="clear:both"></div>
-<div class="container" id="pageStart">
-    <h1>Ancient History Quiz</h1>
-
-    <h3>Choose a level to get started</h3>
-    <input type="checkbox" id="ckSuddenDeath" name="ckSuddenDeath" /> 
-    <label for="ckSuddenDeath">Sudden Death Mode</label>
-
-	<div id="levelContainer">
-	<div class="selectionContainer" style="margin-top:10px;">
-      <a href="javascript:QuizMachine.startQuiz(1);" class="levelButton shadow">Level 1</a>
-      <span class="label scoreLabel">Previous Score:</span> <a href="#" id="lvl1Score"
-      class="previousScore" name="lvl1Score">No Score</a>
+<div class="container  ui-widget" >
+    <div class="ui-widget-header ui-corner-top header">
+    <h1 >Quizzicalicious</h1>
+    <h2>Ancient History</h2>
+	</div>
+	<div class="ui-widget-content content"  id="pageStart">
+	    <h3>Choose a level to get started</h3>
+	    <input type="checkbox" id="ckSuddenDeath" name="ckSuddenDeath" /> 
+	    <label for="ckSuddenDeath">Sudden Death Mode</label>
+	
+	    <div class="selectionContainer" style="margin-top:10px;">
+	      <a href="javascript:QuizMachine.startQuiz(1);" class="levelButton shadow ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">Level 1</a>
+	      <span class="label scoreLabel">Previous Score:</span> <a href="#" id="lvl1Score"
+	      class="previousScore" name="lvl1Score">No Score</a>
+	    </div>
+	
+	    <div class="selectionContainer">
+	      <a href="javascript:QuizMachine.startQuiz(2);" class="levelButton shadow ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">Level 2</a> <span class=
+	      "label scoreLabel">Previous Score:</span> <a href="#" id="lvl2Score" class=
+	      "previousScore" name="lvl2Score">No Score</a>
+	    </div>
+	
+	    <div class="selectionContainer">
+	      <a href="#" class="levelButton shadow ui-corner-all ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">Level 3</a> <span class=
+	      "label scoreLabel">Previous Score:</span> <a href="#" id="lvl3Score" class=
+	      "previousScore" name="lvl3Score">No Score</a>
+	    </div>
+	
+	    <div class="selectionContainer">
+	      <a href="#" class=""></a> <span class="label scoreLabel" style=
+	      "margin-left:89px;">Combined Score:</span> <a href="#" id="lvl3Score" class=
+	      "previousScore" name="lvl3Score">No Score</a>
+	    </div>
     </div>
-
-    <div class="selectionContainer">
-      <a href="javascript:QuizMachine.startQuiz(2);" class="levelButton shadow">Level 2</a> <span class=
-      "label scoreLabel">Previous Score:</span> <a href="#" id="lvl2Score" class=
-      "previousScore" name="lvl2Score">No Score</a>
-    </div>
-
-    <div class="selectionContainer">
-      <a href="#" class="levelButton shadow">Level 3</a> <span class=
-      "label scoreLabel">Previous Score:</span> <a href="#" id="lvl3Score" class=
-      "previousScore" name="lvl3Score">No Score</a>
-    </div>
-
-    <div class="selectionContainer">
-      <a href="#" class=""></a> <span class="label scoreLabel" style=
-      "margin-left:100px;">Combined Score:</span> <a href="#" id="lvl3Score" class=
-      "previousScore" name="lvl3Score">No Score</a>
+    <div class="ui-widget-content content" id="pageQuestions" style="display:none;">
+	    <div id="pageQuestion_lblLabel" class="inline">
+	      <h3 style="margin-top:8px;margin-right: 50px;">Level 1</h3>
+	    </div>
+	
+	    <div id="bardivs" class="inline">
+	      <div id="progressbar"></div>
+	      <div id="progresstext"></div>
+	      <div id="elapsedtext"></div>
+	    </div>
+	    <br class="clearBoth" />
+	    <!-- you may or may not need this -->
+	
+	    <div class="selectionContainer" id="questionContainer"></div>
+	    <div class="selectionContainer" id="questionNavigationContainer"></div>
     </div>
 	</div>
     
 </div>
 
-<div class="container" id="pageQuestions" style="display:none;">
-    <h1>Ancient History Quiz</h1>
-
-    <div id="pageQuestion_lblLabel" class="inline">
-      <h3 style="margin-top:8px;margin-right: 50px;">Level 1</h3>
-    </div>
-
-    <div id="bardivs" class="inline">
-      <div id="progressbar"></div>
-      <div id="progresstext"></div>
-      <div id="elapsedtext"></div>
-    </div>
-    <br class="clearBoth" />
-    <!-- you may or may not need this -->
-
-    <div class="selectionContainer" id="questionContainer"></div>
-    <div class="selectionContainer" id="questionNavigationContainer"></div>
-</div>
 
 </body>
 </html>

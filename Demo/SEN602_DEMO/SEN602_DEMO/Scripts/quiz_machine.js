@@ -81,6 +81,8 @@ var QuizMachine = (function($){
 			$( "#questionNavigationContainer" ).html('');
 			$( "#questionTemplate" ).tmpl(question).appendTo( "#questionContainer" );
 			$( "#questionNavigationTemplate" ).tmpl(question).appendTo( "#questionNavigationContainer" );
+			$( "#questionContainer" ).hide().show('fade','fast');
+			$( "#questionNavigationContainer" ).hide().show('fade','fast');
 			$("#progressbar").progressbar({value: (instance.nextQuestionIndex) * 10});	
 			$("#progresstext").html("<p class='ScoreLabel'>Score:  "+ getCorrectAnswerCount() +"/10<p>");
 			
@@ -112,7 +114,7 @@ var QuizMachine = (function($){
 	
 	instance.startQuiz = function(level){
 		instance.currentQuiz  = QuizLevelDataAccess.getLevelOneQuestions();
-		$('#pageStart').hide('fade');
+		//$('#pageStart').hide('fade');
 		$('#pageQuestions').show('slide');
 		this.moveNext();
 		instance.timeStarted = new Date();

@@ -1,13 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="SEN602_DEMO/Scripts/quiz_machine.js">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" ctype="Workspace" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="SEN602_DEMO/Styles/home.css" ctype="Workbench">
     <Files>
-      <File FileName="SEN602_DEMO/Scripts/quiz_machine.js" Line="45" Column="35" />
-      <File FileName="SEN602_DEMO/Home.html" Line="85" Column="1" />
+      <File FileName="SEN602_DEMO/Scripts/quiz_machine.js" Line="96" Column="5" />
+      <File FileName="SEN602_DEMO/Home.html" Line="46" Column="54" />
+      <File FileName="SEN602_DEMO/Scripts/data.js" Line="1" Column="19" />
+      <File FileName="SEN602_DEMO/Styles/home.css" Line="45" Column="9" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches ctype="PinnedWatchStore" />
 </Properties>
