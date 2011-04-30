@@ -61,6 +61,7 @@
       <a href="#" id="lvl${level}Score" class="previousScore" name="lvl1Score">${summary}</a>
     </div>
 </script>
+
 <script type="text/javascript">
 $(document).ready(function(){
 	QuizMachine.prepareSummaryPage();
@@ -91,6 +92,7 @@ $(document).ready(function(){
 	    <input type="checkbox" id="ckSuddenDeath" name="ckSuddenDeath" /> 
 	    <label for="ckSuddenDeath">Sudden Death Mode</label>
 	
+	<div id="levelContainer">
 	    <div class="selectionContainer" style="margin-top:10px;">
 	      <a href="javascript:QuizMachine.startQuiz(1);" class="levelButton shadow ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">Level 1</a>
 	      <span class="label scoreLabel">Previous Score:</span> <a href="#" id="lvl1Score"
@@ -113,6 +115,7 @@ $(document).ready(function(){
 	      <a href="#" class=""></a> <span class="label scoreLabel" style=
 	      "margin-left:89px;">Combined Score:</span> <a href="#" id="lvl3Score" class=
 	      "previousScore" name="lvl3Score">No Score</a>
+	    </div>
 	    </div>
     </div>
     <div class="ui-widget-content content" id="pageQuestions" style="display:none;">
