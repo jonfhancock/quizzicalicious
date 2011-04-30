@@ -72,12 +72,17 @@ margin-right:15px;
 {
 	position:absolute;
 	bottom:0px;
-	width:500px;
+width: 470px;
+left: 50px;
 }
 #button-next
 {
 	float:right;
-	padding: 5px 8px;
+//	padding: 5px 8px;
+}
+#button-quit
+{
+float:left;
 }
 .ui-button
 {

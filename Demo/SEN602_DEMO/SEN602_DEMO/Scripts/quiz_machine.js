@@ -93,6 +93,7 @@ var QuizMachine = (function($){
 			$( "#questionNavigationContainer" ).html('');
 			$( "#questionTemplate" ).tmpl(question).appendTo( "#questionContainer" );
 			$( "#questionNavigationTemplate" ).tmpl(question).appendTo( "#questionNavigationContainer" );
+			$(".button").button();
 			$( "#questionContainer" ).hide().show('fade','fast');
 			$( "#questionNavigationContainer" ).hide().show('fade','fast');
 			$("#progressbar").progressbar({value: (instance.nextQuestionIndex) * 10});	
@@ -134,6 +135,7 @@ var QuizMachine = (function($){
 				}
 			}).appendTo( "#questionContainer" );
 			$( "#menuTemplate" ).tmpl( [{"canMoveNext" : instance.currentLevel < 3}]).appendTo( "#questionContainer" );
+			$(".button").button();
 		}
 	
 	};
@@ -159,8 +161,9 @@ var QuizMachine = (function($){
 		$('#quizLevel').html(level);
 		$( "#questionContainer" ).html('');
 		$( "#questionNavigationContainer" ).html('');
-		$('#pageStart').hide('fade');
+		//$('#pageStart').hide('fade');
 		$('#pageQuestions').show('slide');
+		$(".button").button();
 		this.moveNext();
 		instance.timeStarted = new Date();
 		
@@ -174,7 +177,7 @@ var QuizMachine = (function($){
 		$( "#summaryTemplate" ).tmpl(instance.questionLevelOnePerformance).appendTo( "#levelContainer" );
 		$( "#summaryTemplate" ).tmpl(instance.questionLevelTwoPerformance).appendTo( "#levelContainer" );
 		$( "#summaryTemplate" ).tmpl(instance.questionLevelThreePerformance).appendTo( "#levelContainer" );
-		
+		$(".button").button();
 		
 	};
 	

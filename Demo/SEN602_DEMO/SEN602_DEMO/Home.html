@@ -23,8 +23,8 @@
 </script>
 
 <script id="questionNavigationTemplate" type="text/x-jquery-tmpl">
-<a href="javascript:QuizMachine.moveNext();" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" id="button-next">Next</a>
-<a href="javascript:QuizMachine.prepareSummaryPage();" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" id="button-next">Quit</a> 
+<a href="javascript:QuizMachine.moveNext();" class="button" id="button-next">Next</a>
+<a href="javascript:QuizMachine.prepareSummaryPage();" class="button" id="button-quit">Quit</a> 
 </script>
 
 <script id="questionTemplateComplete" type="text/x-jquery-tmpl"> 
@@ -57,7 +57,7 @@
 
 <script id="summaryTemplate" type="text/x-jquery-tmpl"> 
     <div class="selectionContainer" style="margin-top:10px;">
-      <a href="javascript:QuizMachine.startQuiz(${level});" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">Level ${level}</a>
+      <a href="javascript:QuizMachine.startQuiz(${level});" class="button">Level ${level}</a>
       <span class="label scoreLabel">Previous Score:</span> 
       <a href="#" id="lvl${level}Score" class="previousScore" name="lvl1Score">${summary}</a>
     </div>
@@ -66,16 +66,18 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	QuizMachine.prepareSummaryPage();
+
+	$(".button").button();
 });
 </script>
 <script  id="menuTemplate" type="text/x-jquery-tmpl">
 <center>
 <table>
 <tr>
-<td><a href="javascript:QuizMachine.startQuiz(1)"  class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">Restart Level</a></td>
-<td><a href="javascript:QuizMachine.prepareSummaryPage();"  class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">Main Menu</a></td>
+<td><a href="javascript:QuizMachine.startQuiz(1)"  class="button">Restart Level</a></td>
+<td><a href="javascript:QuizMachine.prepareSummaryPage();"  class="button">Main Menu</a></td>
 {{if canMoveNext == true}}
-<td><a href="javascript:QuizMachine.startNextLevel();"  class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">Next Level</a></td>
+<td><a href="javascript:QuizMachine.startNextLevel();"  class="button">Next Level</a></td>
 {{/if}}
 </tr>
 <table>
@@ -98,19 +100,19 @@ $(document).ready(function(){
 	
 	<div id="levelContainer">
 	    <div class="selectionContainer" style="margin-top:10px;">
-	      <a href="javascript:QuizMachine.startQuiz(1);" class="levelButton shadow ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">Level 1</a>
+	      <a href="javascript:QuizMachine.startQuiz(1);" class="levelButton shadow button">Level 1</a>
 	      <span class="label scoreLabel">Previous Score:</span> <a href="#" id="lvl1Score"
 	      class="previousScore" name="lvl1Score">No Score</a>
 	    </div>
 	
 	    <div class="selectionContainer">
-	      <a href="javascript:QuizMachine.startQuiz(2);" class="levelButton shadow ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">Level 2</a> <span class=
+	      <a href="javascript:QuizMachine.startQuiz(2);" class="levelButton shadow button">Level 2</a> <span class=
 	      "label scoreLabel">Previous Score:</span> <a href="#" id="lvl2Score" class=
 	      "previousScore" name="lvl2Score">No Score</a>
 	    </div>
 	
 	    <div class="selectionContainer">
-	      <a href="#" class="levelButton shadow ui-corner-all ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">Level 3</a> <span class=
+	      <a href="#" class="levelButton shadow ui-corner-all button">Level 3</a> <span class=
 	      "label scoreLabel">Previous Score:</span> <a href="#" id="lvl3Score" class=
 	      "previousScore" name="lvl3Score">No Score</a>
 	    </div>
