@@ -11,8 +11,22 @@ background-image: -moz-linear-gradient(
     rgb(92,155,204) 26%,
     rgb(223,239,252) 82%
 );
+background-position:fixed;
 
-
+}
+.bodyextra{
+background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.26, rgb(92,155,204)),
+    color-stop(0.82, rgb(223,239,252))
+);
+background-image: -moz-linear-gradient(
+    center bottom,
+    rgb(92,155,204) 26%,
+    rgb(223,239,252) 82%
+);
 }
 .container
 {
@@ -58,6 +72,10 @@ padding:0px;
 #button-next
 {
 	float:right;
+	padding: 5px 8px;
+}
+.ui-button
+{
 	padding: 5px 8px;
 }
 .label

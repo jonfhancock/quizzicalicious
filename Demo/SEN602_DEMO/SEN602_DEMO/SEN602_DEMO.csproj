@@ -47,6 +47,11 @@
     <Content Include="Scripts\jquery-ui-1.8.12.custom.min.js" />
     <Content Include="Scripts\jquery.tmpl.min.js" />
     <Content Include="Scripts\quiz_machine.js" />
+    <Content Include="Images\25\correct-380.png" />
+    <Content Include="Images\25\incorrect-380.png" />
+    <Content Include="Images\50\correct-380.png" />
+    <Content Include="Images\50\incorrect-380.png" />
+    <Content Include="Images\50\quizzicalicious-logo-466.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
