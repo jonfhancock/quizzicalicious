@@ -29,12 +29,28 @@
 <script id="questionTemplateComplete" type="text/x-jquery-tmpl"> 
 <dl>
 <dt><b>${index+1})</b> ${question}</dt>
+<dd>
+<table>
 {{each(i,answer) answers}}
-	<dd>
+<tr>	
+<td>
+	 {{if i == correctAnswer}}
+	Correct
+	{{else i != correctAnswer && i == chosenAnswer}}
+	Wrong
+	{{else}}
+	&nbsp;
+	{{/if}}	
+</td>
+<td>	 
 		<input type="radio" id="answer${answer.id}" name="question_${index}_answers" is_correct="${answer.isCorrectAnswer}" {{html $item.getChecked(index,i)}}/>
 		<label for="answer${answer.id}" class="answerLabel">${answer.text}</label>
-	</dd>
+</td>
+</tr>	
 {{/each}}
+
+</table>
+</dd>
 </dl>
 </script>
 
