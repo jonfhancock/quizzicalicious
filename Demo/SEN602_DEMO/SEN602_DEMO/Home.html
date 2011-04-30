@@ -29,23 +29,83 @@
 <script id="questionTemplateComplete" type="text/x-jquery-tmpl"> 
 <dl>
 <dt><b>${index+1})</b> ${question}</dt>
+<dd>
+<table>
 {{each(i,answer) answers}}
-	<dd>
+<tr>	
+<td>
+	 {{if i == correctAnswer}}
+	Correct
+	{{else i != correctAnswer && i == chosenAnswer}}
+	Wrong
+	{{else}}
+	&nbsp;
+	{{/if}}	
+</td>
+<td>	 
 		<input type="radio" id="answer${answer.id}" name="question_${index}_answers" is_correct="${answer.isCorrectAnswer}" {{html $item.getChecked(index,i)}}/>
 		<label for="answer${answer.id}" class="answerLabel">${answer.text}</label>
-	</dd>
+</td>
+</tr>	
 {{/each}}
+
+</table>
+</dd>
 </dl>
 </script>
 
+<script id="summaryTemplate" type="text/x-jquery-tmpl"> 
+    <div class="selectionContainer" style="margin-top:10px;">
+      <a href="javascript:QuizMachine.startQuiz(${level});" class="levelButton shadow">Level ${level}</a>
+      <span class="label scoreLabel">Previous Score:</span> 
+      <a href="#" id="lvl${level}Score" class="previousScore" name="lvl1Score">${summary}</a>
+    </div>
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+	QuizMachine.prepareSummaryPage();
+});
+</script>
+<script  id="menuTemplate" type="text/x-jquery-tmpl">
+<center>
+<table>
+<tr>
+<td><a href="javascript:QuizMachine.startQuiz(1)"  class="levelButton shadow">Restart Level</a></td>
+<td><a href="javascript:QuizMachine.prepareSummaryPage();"  class="levelButton shadow">Main Menu</a></td>
+<td><a href="#"  class="levelButton shadow">Next Level</a></td>
+</tr>
+<table>
+</center>
+</script>
 </head>
 <body>
 <div id="actions" style="float:right"></div>
 <div style="clear:both"></div>
+<<<<<<< HEAD
 <div class="container  ui-widget" >
     <div class="ui-widget-header ui-corner-top header">
     <h1 >Quizzicalicious</h1>
     <h2>Ancient History</h2>
+=======
+<div class="container" id="pageStart">
+    <h1>Ancient History Quiz</h1>
+
+    <h3>Choose a level to get started</h3>
+    <input type="checkbox" id="ckSuddenDeath" name="ckSuddenDeath" /> 
+    <label for="ckSuddenDeath">Sudden Death Mode</label>
+
+	<div id="levelContainer">
+	<div class="selectionContainer" style="margin-top:10px;">
+      <a href="javascript:QuizMachine.startQuiz(1);" class="levelButton shadow">Level 1</a>
+      <span class="label scoreLabel">Previous Score:</span> <a href="#" id="lvl1Score"
+      class="previousScore" name="lvl1Score">No Score</a>
+    </div>
+
+    <div class="selectionContainer">
+      <a href="javascript:QuizMachine.startQuiz(2);" class="levelButton shadow">Level 2</a> <span class=
+      "label scoreLabel">Previous Score:</span> <a href="#" id="lvl2Score" class=
+      "previousScore" name="lvl2Score">No Score</a>
+>>>>>>> 5a45c67e33a6403f3f578abc90d7c268c5b26462
     </div>
 	<div class="ui-widget-content content"  id="pageStart">
 	    <h3>Choose a level to get started</h3>
@@ -91,12 +151,35 @@
 	    <div class="selectionContainer" id="questionContainer"></div>
 	    <div class="selectionContainer" id="questionNavigationContainer"></div>
     </div>
+	</div>
+    
 </div>
 
+<<<<<<< HEAD
 <!--<div class="container ui-widget "  >
     <h1 class="ui-widget-header ui-corner-top">Ancient History Quiz</h1>
 	
 </div> -->
+=======
+<div class="container" id="pageQuestions" style="display:none;">
+    <h1>Ancient History Quiz</h1>
+
+    <div id="pageQuestion_lblLabel" class="inline">
+      <h3 style="margin-top:8px;margin-right: 50px;">Level 1</h3>
+    </div>
+
+    <div id="bardivs" class="inline">
+      <div id="progressbar"></div>
+      <div id="progresstext"></div>
+      <div id="elapsedtext"></div>
+    </div>
+    <br class="clearBoth" />
+    <!-- you may or may not need this -->
+
+    <div class="selectionContainer" id="questionContainer"></div>
+    <div class="selectionContainer" id="questionNavigationContainer"></div>
+</div>
+>>>>>>> 5a45c67e33a6403f3f578abc90d7c268c5b26462
 
 </body>
 </html>
