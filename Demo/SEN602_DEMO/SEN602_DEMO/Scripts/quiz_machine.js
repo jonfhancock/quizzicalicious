@@ -181,7 +181,7 @@ var QuizMachine = (function($){
 	instance.startNextLevel = function()
 	{
 		if(instance.currentLevel < 3){
-			instance.startQuiz(instance.currentLevel);
+			instance.startQuiz(instance.currentLevel+1);
 		}
 		else{
 			instance.prepareSummaryPage();
