@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.6.0_24" class="java.beans.XMLDecoder"> 
+ <object class="com.horstmann.violet.UseCaseDiagramGraph"> 
+  <void method="addNode"> 
+   <object class="com.horstmann.violet.NoteNode"> 
+    <void property="text"> 
+     <void property="text"> 
+      <string>UC_VR
+View Results</string> 
+     </void> 
+    </void> 
+   </object> 
+   <object class="java.awt.geom.Point2D$Double"> 
+    <void method="setLocation"> 
+     <double>386.0</double> 
+     <double>55.0</double> 
+    </void> 
+   </object> 
+  </void> 
+  <void method="addNode"> 
+   <object id="ActorNode0" class="com.horstmann.violet.ActorNode"> 
+    <void property="name"> 
+     <void property="text"> 
+      <string>User</string> 
+     </void> 
+    </void> 
+   </object> 
+   <object class="java.awt.geom.Point2D$Double"> 
+    <void method="setLocation"> 
+     <double>402.0</double> 
+     <double>113.0</double> 
+    </void> 
+   </object> 
+  </void> 
+  <void method="addNode"> 
+   <object id="UseCaseNode0" class="com.horstmann.violet.UseCaseNode"> 
+    <void property="name"> 
+     <void property="text"> 
+      <string>User views results
+of a normal mode
+quiz</string> 
+     </void> 
+    </void> 
+   </object> 
+   <object class="java.awt.geom.Point2D$Double"> 
+    <void method="setLocation"> 
+     <double>477.0</double> 
+     <double>158.0</double> 
+    </void> 
+   </object> 
+  </void> 
+  <void method="addNode"> 
+   <object id="UseCaseNode1" class="com.horstmann.violet.UseCaseNode"> 
+    <void property="name"> 
+     <void property="text"> 
+      <string>User chooses to 
+restart the current level</string> 
+     </void> 
+    </void> 
+   </object> 
+   <object class="java.awt.geom.Point2D$Double"> 
+    <void method="setLocation"> 
+     <double>216.0</double> 
+     <double>147.0</double> 
+    </void> 
+   </object> 
+  </void> 
+  <void method="addNode"> 
+   <object id="UseCaseNode2" class="com.horstmann.violet.UseCaseNode"> 
+    <void property="name"> 
+     <void property="text"> 
+      <string>User returns to the main menu</string> 
+     </void> 
+    </void> 
+   </object> 
+   <object class="java.awt.geom.Point2D$Double"> 
+    <void method="setLocation"> 
+     <double>331.0</double> 
+     <double>227.0</double> 
+    </void> 
+   </object> 
+  </void> 
+  <void method="connect"> 
+   <object class="com.horstmann.violet.UseCaseRelationshipEdge"/> 
+   <object idref="ActorNode0"/> 
+   <object idref="UseCaseNode0"/> 
+  </void> 
+  <void method="connect"> 
+   <object class="com.horstmann.violet.UseCaseRelationshipEdge"/> 
+   <object idref="ActorNode0"/> 
+   <object idref="UseCaseNode1"/> 
+  </void> 
+  <void method="connect"> 
+   <object class="com.horstmann.violet.UseCaseRelationshipEdge"/> 
+   <object idref="ActorNode0"/> 
+   <object idref="UseCaseNode2"/> 
+  </void> 
+ </object> 
+</java> 

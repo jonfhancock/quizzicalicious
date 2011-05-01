@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.6.0_24" class="java.beans.XMLDecoder"> 
+ <object class="com.horstmann.violet.UseCaseDiagramGraph"> 
+  <void method="addNode"> 
+   <object class="com.horstmann.violet.NoteNode"> 
+    <void property="text"> 
+     <void property="text"> 
+      <string>UC_AQ
+Answer Question</string> 
+     </void> 
+    </void> 
+   </object> 
+   <object class="java.awt.geom.Point2D$Double"> 
+    <void method="setLocation"> 
+     <double>354.0</double> 
+     <double>73.0</double> 
+    </void> 
+   </object> 
+  </void> 
+  <void method="addNode"> 
+   <object id="ActorNode0" class="com.horstmann.violet.ActorNode"> 
+    <void property="name"> 
+     <void property="text"> 
+      <string>User</string> 
+     </void> 
+    </void> 
+   </object> 
+   <object class="java.awt.geom.Point2D$Double"> 
+    <void method="setLocation"> 
+     <double>379.0</double> 
+     <double>133.0</double> 
+    </void> 
+   </object> 
+  </void> 
+  <void method="addNode"> 
+   <object id="UseCaseNode0" class="com.horstmann.violet.UseCaseNode"> 
+    <void property="name"> 
+     <void property="text"> 
+      <string>User answers a
+question in normal
+mode</string> 
+     </void> 
+    </void> 
+   </object> 
+   <object class="java.awt.geom.Point2D$Double"> 
+    <void method="setLocation"> 
+     <double>163.0</double> 
+     <double>157.0</double> 
+    </void> 
+   </object> 
+  </void> 
+  <void method="addNode"> 
+   <object id="UseCaseNode1" class="com.horstmann.violet.UseCaseNode"> 
+    <void property="name"> 
+     <void property="text"> 
+      <string>User answers the final
+question before being
+taken to the results
+page</string> 
+     </void> 
+    </void> 
+   </object> 
+   <object class="java.awt.geom.Point2D$Double"> 
+    <void method="setLocation"> 
+     <double>180.0</double> 
+     <double>251.0</double> 
+    </void> 
+   </object> 
+  </void> 
+  <void method="addNode"> 
+   <object id="UseCaseNode2" class="com.horstmann.violet.UseCaseNode"> 
+    <void property="name"> 
+     <void property="text"> 
+      <string>User answers a total
+of three questions
+incorrectly and is
+taken to the results
+page</string> 
+     </void> 
+    </void> 
+   </object> 
+   <object class="java.awt.geom.Point2D$Double"> 
+    <void method="setLocation"> 
+     <double>424.0</double> 
+     <double>253.0</double> 
+    </void> 
+   </object> 
+  </void> 
+  <void method="addNode"> 
+   <object id="UseCaseNode3" class="com.horstmann.violet.UseCaseNode"> 
+    <void property="name"> 
+     <void property="text"> 
+      <string>User quits the quiz and is
+returned to the main page</string> 
+     </void> 
+    </void> 
+   </object> 
+   <object class="java.awt.geom.Point2D$Double"> 
+    <void method="setLocation"> 
+     <double>497.0</double> 
+     <double>151.0</double> 
+    </void> 
+   </object> 
+  </void> 
+  <void method="connect"> 
+   <object class="com.horstmann.violet.UseCaseRelationshipEdge"/> 
+   <object idref="UseCaseNode3"/> 
+   <object idref="ActorNode0"/> 
+  </void> 
+  <void method="connect"> 
+   <object class="com.horstmann.violet.UseCaseRelationshipEdge"/> 
+   <object idref="UseCaseNode2"/> 
+   <object idref="ActorNode0"/> 
+  </void> 
+  <void method="connect"> 
+   <object class="com.horstmann.violet.UseCaseRelationshipEdge"/> 
+   <object idref="UseCaseNode0"/> 
+   <object idref="ActorNode0"/> 
+  </void> 
+  <void method="connect"> 
+   <object class="com.horstmann.violet.UseCaseRelationshipEdge"/> 
+   <object idref="UseCaseNode1"/> 
+   <object idref="ActorNode0"/> 
+  </void> 
+ </object> 
+</java> 

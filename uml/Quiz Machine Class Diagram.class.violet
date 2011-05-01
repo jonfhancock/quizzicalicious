@@ -2,45 +2,25 @@
 <java version="1.6.0_24" class="java.beans.XMLDecoder"> 
  <object class="com.horstmann.violet.ClassDiagramGraph"> 
   <void method="addNode"> 
-   <object class="com.horstmann.violet.ClassNode"> 
-    <void property="name"> 
-     <void property="text"> 
-      <string>User</string> 
-     </void> 
-    </void> 
-   </object> 
-   <object class="java.awt.geom.Point2D$Double"> 
-    <void method="setLocation"> 
-     <double>629.0</double> 
-     <double>39.0</double> 
-    </void> 
-   </object> 
-  </void> 
-  <void method="addNode"> 
    <object id="ClassNode0" class="com.horstmann.violet.ClassNode"> 
     <void property="attributes"> 
      <void property="text"> 
-      <string>Level
-Game Mode
-Score 
-Game Time</string> 
-     </void> 
-    </void> 
-    <void property="methods"> 
-     <void property="text"> 
-      <string>Retrieve Questions</string> 
+      <string>+score: int
++time : int
++level : int
++summary : string</string> 
      </void> 
     </void> 
     <void property="name"> 
      <void property="text"> 
-      <string>Quiz</string> 
+      <string>Question Level</string> 
      </void> 
     </void> 
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>860.0</double> 
-     <double>16.0</double> 
+     <double>685.0</double> 
+     <double>441.0</double> 
     </void> 
    </object> 
   </void> 
@@ -48,12 +28,37 @@ Game Time</string>
    <object id="ClassNode1" class="com.horstmann.violet.ClassNode"> 
     <void property="attributes"> 
      <void property="text"> 
-      <string>Question Level
-Question
-Answer:
-Possible Answer 1
-Possible Answer 2
-Possible Answer 3</string> 
+      <string>+id : int
++text : string
++isCorrectAnswer : bool</string> 
+     </void> 
+    </void> 
+    <void property="name"> 
+     <void property="text"> 
+      <string>Answer</string> 
+     </void> 
+    </void> 
+   </object> 
+   <object class="java.awt.geom.Point2D$Double"> 
+    <void method="setLocation"> 
+     <double>661.0</double> 
+     <double>246.0</double> 
+    </void> 
+   </object> 
+  </void> 
+  <void method="addNode"> 
+   <object id="ClassNode2" class="com.horstmann.violet.ClassNode"> 
+    <void property="attributes"> 
+     <void property="text"> 
+      <string>+question : string
++index : int
++correctAnswer : int
++answers : List&lt;Answer&gt;</string> 
+     </void> 
+    </void> 
+    <void property="methods"> 
+     <void property="text"> 
+      <string>+addAnswer(answer.string.isCorrect:bool)</string> 
      </void> 
     </void> 
     <void property="name"> 
@@ -64,8 +69,68 @@ Possible Answer 3</string>
    </object> 
    <object class="java.awt.geom.Point2D$Double"> 
     <void method="setLocation"> 
-     <double>1110.0</double> 
-     <double>17.0</double> 
+     <double>238.0</double> 
+     <double>242.0</double> 
+    </void> 
+   </object> 
+  </void> 
+  <void method="addNode"> 
+   <object id="ClassNode3" class="com.horstmann.violet.ClassNode"> 
+    <void property="attributes"> 
+     <void property="text"> 
+      <string>+questionLevelOnePerformance : QuestionLevel
++questionLevelTwo Performance : QuestionLevel
++questionLevelThreePerformance : QuestionLevel
++timeStarted : Date
++timeStopped : Date
++currentQuestionIndex : int
++ currentQuizLevel : int
++nextQuestionIndex : int</string> 
+     </void> 
+    </void> 
+    <void property="methods"> 
+     <void property="text"> 
+      <string>-getCorrectAnswerCount()
++setSelectedAnswer(questionIndex : int,answerIndex : int) : void
++moveNext() : void
++startQuiz(level: int) : void
++prepareSummaryPage() : void</string> 
+     </void> 
+    </void> 
+    <void property="name"> 
+     <void property="text"> 
+      <string>Quiz Machine</string> 
+     </void> 
+    </void> 
+   </object> 
+   <object class="java.awt.geom.Point2D$Double"> 
+    <void method="setLocation"> 
+     <double>236.0</double> 
+     <double>388.0</double> 
+    </void> 
+   </object> 
+  </void> 
+  <void method="addNode"> 
+   <object id="ClassNode4" class="com.horstmann.violet.ClassNode"> 
+    <void property="methods"> 
+     <void property="text"> 
+      <string>+getLevelOneQuestions() : List&lt;Question&gt;
++getLevelTwoQuestions() : List&lt;Question&gt;
++getLevelThreeQuestions() : List&lt;Question&gt;
+
+</string> 
+     </void> 
+    </void> 
+    <void property="name"> 
+     <void property="text"> 
+      <string>QuizLevelDataAccess</string> 
+     </void> 
+    </void> 
+   </object> 
+   <object class="java.awt.geom.Point2D$Double"> 
+    <void method="setLocation"> 
+     <double>232.0</double> 
+     <double>60.0</double> 
     </void> 
    </object> 
   </void> 
@@ -78,8 +143,32 @@ Possible Answer 3</string>
      <object class="com.horstmann.violet.ArrowHead" field="V"/> 
     </void> 
    </object> 
+   <object idref="ClassNode3"/> 
    <object idref="ClassNode0"/> 
+  </void> 
+  <void method="connect"> 
+   <object class="com.horstmann.violet.ClassRelationshipEdge"> 
+    <void property="bentStyle"> 
+     <object class="com.horstmann.violet.BentStyle" field="HVH"/> 
+    </void> 
+    <void property="endArrowHead"> 
+     <object class="com.horstmann.violet.ArrowHead" field="V"/> 
+    </void> 
+   </object> 
+   <object idref="ClassNode2"/> 
    <object idref="ClassNode1"/> 
+  </void> 
+  <void method="connect"> 
+   <object class="com.horstmann.violet.ClassRelationshipEdge"> 
+    <void property="bentStyle"> 
+     <object class="com.horstmann.violet.BentStyle" field="HVH"/> 
+    </void> 
+    <void property="endArrowHead"> 
+     <object class="com.horstmann.violet.ArrowHead" field="V"/> 
+    </void> 
+   </object> 
+   <object idref="ClassNode4"/> 
+   <object idref="ClassNode2"/> 
   </void> 
  </object> 
 </java> 
